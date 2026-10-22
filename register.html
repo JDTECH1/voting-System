@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Register — Accessible Voting System</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">Accessible Voting System</a>
+  <nav class="main-nav" aria-label="Primary">
+    <a href="login.html">Voter Login</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+</header>
+
+<div class="accessibility-toolbar" role="region" aria-label="Accessibility options">
+  <span>Accessibility:</span>
+  <button id="toggle-contrast" type="button" aria-pressed="false">High contrast</button>
+  <button id="font-decrease" type="button" aria-label="Decrease text size">A−</button>
+  <span id="font-scale-label" aria-live="polite">100%</span>
+  <button id="font-increase" type="button" aria-label="Increase text size">A+</button>
+  <button id="font-reset" type="button">Reset text size</button>
+</div>
+
+<main id="main-content">
+  <h1>Voter Registration</h1>
+  <p>Fields marked with an asterisk (*) are required.</p>
+
+  <div id="status" class="status-message" hidden></div>
+
+  <form id="register-form" novalidate>
+    <div class="form-group">
+      <label for="fullName">Full name *</label>
+      <input type="text" id="fullName" name="fullName" autocomplete="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address *</label>
+      <input type="email" id="email" name="email" autocomplete="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="identificationNo">Identification number *</label>
+      <input type="text" id="identificationNo" name="identificationNo" required />
+      <p class="hint">e.g. your registered national/institutional ID number.</p>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password *</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" required minlength="8" />
+      <p class="hint">At least 8 characters.</p>
+    </div>
+
+    <div class="form-group">
+      <label for="accessibilityPref">Preferred accessibility mode (optional)</label>
+      <select id="accessibilityPref" name="accessibilityPref">
+        <option value="standard">Standard</option>
+        <option value="screen-reader">Screen reader user</option>
+        <option value="high-contrast">High contrast preferred</option>
+        <option value="keyboard-only">Keyboard-only navigation</option>
+      </select>
+      <p class="hint">This helps us understand our users; you can still change display settings anytime using the toolbar above.</p>
+    </div>
+
+    <button type="submit" id="submit-btn">Create account</button>
+  </form>
+
+  <p>Already have an account? <a href="login.html">Log in here</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <p>Accessible Voting System — Final Year Project Prototype</p>
+</footer>
+
+<script src="js/accessibility.js"></script>
+<script src="js/api.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

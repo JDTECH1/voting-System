@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voter Login — Accessible Voting System</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">Accessible Voting System</a>
+  <nav class="main-nav" aria-label="Primary">
+    <a href="register.html">Register</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+</header>
+
+<div class="accessibility-toolbar" role="region" aria-label="Accessibility options">
+  <span>Accessibility:</span>
+  <button id="toggle-contrast" type="button" aria-pressed="false">High contrast</button>
+  <button id="font-decrease" type="button" aria-label="Decrease text size">A−</button>
+  <span id="font-scale-label" aria-live="polite">100%</span>
+  <button id="font-increase" type="button" aria-label="Increase text size">A+</button>
+  <button id="font-reset" type="button">Reset text size</button>
+</div>
+
+<main id="main-content">
+  <h1>Voter Login</h1>
+
+  <div id="status" class="status-message" hidden></div>
+
+  <form id="credentials-form" novalidate>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" autocomplete="email" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="current-password" required />
+    </div>
+    <button type="submit" id="credentials-submit">Continue</button>
+  </form>
+
+  <form id="otp-form" novalidate hidden>
+    <fieldset>
+      <legend>Enter the one-time code (OTP)</legend>
+      <p id="otp-hint">
+        For this demonstration system, no SMS/e-mail provider is configured, so your
+        OTP is shown below and printed to the server console instead of being sent externally.
+      </p>
+      <p><strong>Demo OTP: <span id="dev-otp-display"></span></strong></p>
+      <div class="form-group">
+        <label for="otpCode">6-digit code</label>
+        <input type="text" id="otpCode" name="otpCode" inputmode="numeric" pattern="[0-9]*" maxlength="6" required />
+      </div>
+      <button type="submit" id="otp-submit">Verify and log in</button>
+      <button type="button" id="otp-cancel" class="secondary">Start over</button>
+    </fieldset>
+  </form>
+
+  <p>Don't have an account? <a href="register.html">Register here</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <p>Accessible Voting System — Final Year Project Prototype</p>
+</footer>
+
+<script src="js/accessibility.js"></script>
+<script src="js/api.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

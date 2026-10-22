@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard — Accessible Voting System</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">Accessible Voting System — Admin</a>
+  <nav class="main-nav" aria-label="Primary">
+    <button id="logout-btn" type="button">Log out</button>
+  </nav>
+</header>
+
+<div class="accessibility-toolbar" role="region" aria-label="Accessibility options">
+  <span>Accessibility:</span>
+  <button id="toggle-contrast" type="button" aria-pressed="false">High contrast</button>
+  <button id="font-decrease" type="button" aria-label="Decrease text size">A−</button>
+  <span id="font-scale-label" aria-live="polite">100%</span>
+  <button id="font-increase" type="button" aria-label="Increase text size">A+</button>
+  <button id="font-reset" type="button">Reset text size</button>
+</div>
+
+<main id="main-content">
+  <h1>Administrator Dashboard</h1>
+  <div id="status" class="status-message" hidden></div>
+
+  <section class="card" aria-labelledby="summary-heading">
+    <h2 id="summary-heading">Overview</h2>
+    <div id="summary-container">Loading…</div>
+  </section>
+
+  <section class="card" aria-labelledby="create-election-heading">
+    <h2 id="create-election-heading">Create New Election</h2>
+    <form id="create-election-form" novalidate>
+      <div class="form-group">
+        <label for="title">Election title *</label>
+        <input type="text" id="title" name="title" required />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="startTime">Start time *</label>
+        <input type="datetime-local" id="startTime" name="startTime" required />
+      </div>
+      <div class="form-group">
+        <label for="endTime">End time *</label>
+        <input type="datetime-local" id="endTime" name="endTime" required />
+      </div>
+      <button type="submit">Create election</button>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="elections-heading">
+    <h2 id="elections-heading">Manage Elections</h2>
+    <div id="elections-container">Loading elections…</div>
+  </section>
+
+  <section class="card" aria-labelledby="audit-heading">
+    <h2 id="audit-heading">Audit Log (most recent 200 events)</h2>
+    <div id="audit-container">Loading audit log…</div>
+  </section>
+</main>
+
+<!-- Add-candidate dialog area (simple inline panel, not a native <dialog> to keep
+     keyboard/focus handling explicit and predictable across browsers) -->
+<div id="candidate-panel" class="card" hidden aria-labelledby="candidate-panel-heading">
+  <h2 id="candidate-panel-heading">Add Candidate</h2>
+  <form id="add-candidate-form" novalidate>
+    <input type="hidden" id="candidateElectionId" />
+    <div class="form-group">
+      <label for="candidateName">Candidate name *</label>
+      <input type="text" id="candidateName" required />
+    </div>
+    <div class="form-group">
+      <label for="candidateManifesto">Manifesto</label>
+      <textarea id="candidateManifesto"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="candidatePhotoUrl">Photo URL (optional)</label>
+      <input type="text" id="candidatePhotoUrl" />
+    </div>
+    <button type="submit">Add candidate</button>
+    <button type="button" id="close-candidate-panel" class="secondary">Close</button>
+  </form>
+</div>
+
+<footer class="site-footer">
+  <p>Accessible Voting System — Final Year Project Prototype</p>
+</footer>
+
+<script src="js/accessibility.js"></script>
+<script src="js/api.js"></script>
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

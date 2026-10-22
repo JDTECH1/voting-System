@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Accessible Voting System — Home</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <a href="index.html" class="brand">Accessible Voting System</a>
+  <nav class="main-nav" aria-label="Primary">
+    <a href="login.html">Voter Login</a>
+    <a href="register.html">Register</a>
+    <a href="admin-login.html">Admin</a>
+  </nav>
+</header>
+
+<div class="accessibility-toolbar" role="region" aria-label="Accessibility options">
+  <span>Accessibility:</span>
+  <button id="toggle-contrast" type="button" aria-pressed="false">High contrast</button>
+  <button id="font-decrease" type="button" aria-label="Decrease text size">A−</button>
+  <span id="font-scale-label" aria-live="polite">100%</span>
+  <button id="font-increase" type="button" aria-label="Increase text size">A+</button>
+  <button id="font-reset" type="button">Reset text size</button>
+</div>
+
+<main id="main-content">
+  <h1>Welcome to the Accessible Voting System</h1>
+  <p>
+    A secure, web-based voting platform designed for persons living with
+    disabilities. Register, log in, and cast your vote independently — with
+    screen-reader support, full keyboard navigation, high-contrast display,
+    and adjustable text size built in.
+  </p>
+
+  <div class="card">
+    <h2>Already registered?</h2>
+    <p>Log in to view open elections and cast your vote.</p>
+    <a class="btn" href="login.html">Log in to vote</a>
+  </div>
+
+  <div class="card">
+    <h2>New voter?</h2>
+    <p>Create an account to register as an eligible voter.</p>
+    <a class="btn secondary" href="register.html">Create an account</a>
+  </div>
+
+  <div class="card">
+    <h2>Election administrator?</h2>
+    <p>Manage elections, candidates, and view the audit log.</p>
+    <a class="btn secondary" href="admin-login.html">Admin login</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>Accessible Voting System — Final Year Project Prototype</p>
+</footer>
+
+<script src="js/accessibility.js"></script>
+</body>
+</html>
